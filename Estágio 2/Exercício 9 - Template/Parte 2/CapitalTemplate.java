@@ -1,16 +1,24 @@
 
 public abstract class CapitalTemplate {
 	
-	public double capital(Loan loan) {
+	public double capitalTemplate(Loan loan) {
 		
-		return riskAmountFor(loan)* duration(loan)*riskFactorFor(loan);
+		return loan.duration()*loan.riskFacrotyFor();
 	}
 	
-	public abstract double riskAmountFor(Loan loan);
+	public abstract double capital(Loan loan);
 	
-	public double unusedPercentageFor(Loan loan) {
-		return capital(loan);
+	public double duration(Loan loan) {
+		
+		return loan.duration();
 	}
+	
+	protected double riskFactorFor(Loan loan) 
+	{
+		return loan.riskFacrotyFor();
+	}
+	
+
 	
 	
 

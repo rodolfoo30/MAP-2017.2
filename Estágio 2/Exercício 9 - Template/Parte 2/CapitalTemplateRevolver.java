@@ -2,9 +2,10 @@
 public class CapitalTemplateRevolver extends CapitalTemplate {
 
 	@Override
-	public double riskAmountFor(Loan loan) {
-		return capital+(loan.unusedRiskAmount()*unusedRiskFactor(loan)*duration(loan))
-	}
+	public double capital(Loan loan) {
 	
+		return capitalTemplate(loan)*loan.outStandingRiskAmount()+
+				(loan.unusedRiskAmount()*loan.duration()*loan.unusedRiskFactorFor());
+	}
 
 }
